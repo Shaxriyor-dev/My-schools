@@ -1,0 +1,68 @@
+{
+   "books" : [
+        {
+            "id" : 1,
+             "status" : "Tarixiy roman" ,
+            "name" : "O'tkan kunlar" ,
+            "shoir" : "Abdulla Qodiriy",
+             "link" : "https://arm.uzmmsi.uz/uploads/pdf/Abdulla%20Qodiriy%20O%E2%80%98tkan%20kunlar.pdf",
+             "img" : "https://media.istockphoto.com/id/2060984408/photo/stack-of-colorful-books-education-background-back-to-school-book-hardback-colorful-books-on.jpg?s=612x612&w=0&k=20&c=S-a-AjcVaONddGxfcfbNckme8H7ujSllz-MjgmcKrVQ="
+        },
+        {
+            "id" : 2,
+             "status" : " Badiiy adabiyot" ,
+            "name" : "Kecha va Kunduz" ,
+            "shoir" : "Cho'lpon",
+             "link" : "https://sever.be/files/BADIIY%20KITOBLAR/Kecha%20va%20kunduz.%20Roman.%20A.Chulpon.%20Toshkent%202019.pdf",
+             "img" : "https://media.istockphoto.com/id/2060984408/photo/stack-of-colorful-books-education-background-back-to-school-book-hardback-colorful-books-on.jpg?s=612x612&w=0&k=20&c=S-a-AjcVaONddGxfcfbNckme8H7ujSllz-MjgmcKrVQ="
+        },
+        {
+            "id" : 3,
+             "status" : "Bolalar adabiyoti" ,
+            "name" : "Sariq Devni Minib" ,
+            "shoir" : "Xudoyberdi To'xtaboyev",
+             "link" : "https://kitobsevar.uz/kxpv/xrpt_18986lhjgthglf5u5aiygxb1978xlktcis0d5hmb2vic2cyvc8jjuk0tg8fth1vrhvuc49dutly.pdf",
+             "img" : "https://media.istockphoto.com/id/2060984408/photo/stack-of-colorful-books-education-background-back-to-school-book-hardback-colorful-books-on.jpg?s=612x612&w=0&k=20&c=S-a-AjcVaONddGxfcfbNckme8H7ujSllz-MjgmcKrVQ="
+        },
+        {
+            "id" : 4,
+             "status" : "Tarixiy roman" ,
+            "name" : "Amir Temur" ,
+            "shoir" : "Bo‘riboy Ahmedov",
+             "link" : "https://kitobsevar.uz/kxpv/xrpt_e9crhp56fgyzikh47lp8b1ly3h0fa7se6vxccp8iyv877ez4pf1r7beyje4jblo78b00s7hfsfc.pdf",
+             "img" : "https://media.istockphoto.com/id/2060984408/photo/stack-of-colorful-books-education-background-back-to-school-book-hardback-colorful-books-on.jpg?s=612x612&w=0&k=20&c=S-a-AjcVaONddGxfcfbNckme8H7ujSllz-MjgmcKrVQ="
+        },
+        {
+            "id" : 5,
+             "status" : " Tarixiy roman" ,
+            "name" : "Bobur" ,
+            "shoir" : "Said Ahmad",
+             "link" : "https://kitobxon.com/oz/asar/bobur-said-ahmad",
+             "img" : "https://media.istockphoto.com/id/2060984408/photo/stack-of-colorful-books-education-background-back-to-school-book-hardback-colorful-books-on.jpg?s=612x612&w=0&k=20&c=S-a-AjcVaONddGxfcfbNckme8H7ujSllz-MjgmcKrVQ="
+        },
+        {
+            "id" : 6,
+             "status" : " Tarixiy roman" ,
+            "name" : "Avlodlar dovoni" ,
+            "shoir" : "Pirimqul Qodirov",
+             "link" : "https://kitobxon.com/oz/asar/avlodlar-dovoni",
+             "img" : "https://media.istockphoto.com/id/2060984408/photo/stack-of-colorful-books-education-background-back-to-school-book-hardback-colorful-books-on.jpg?s=612x612&w=0&k=20&c=S-a-AjcVaONddGxfcfbNckme8H7ujSllz-MjgmcKrVQ="
+        },
+        {
+            "id" : 7,
+             "status" : " Tarixiy roman" ,
+            "name" : "Ulug‘bek xazinasi" ,
+            "shoir" : "Odil Yoqubov",
+             "link" : "https://kitobxon.com/oz/asar/ulugbek-xazinasi",
+             "img" : "https://media.istockphoto.com/id/2060984408/photo/stack-of-colorful-books-education-background-back-to-school-book-hardback-colorful-books-on.jpg?s=612x612&w=0&k=20&c=S-a-AjcVaONddGxfcfbNckme8H7ujSllz-MjgmcKrVQ="
+        },
+        {
+            "id" : 8,
+             "status" : "Tarixiy-siyosiy roman" ,
+            "name" : "Bahorning 17 lahzasi" ,
+            "shoir" : "Yulian Semyonov",
+             "link" : "https://kitobxon.com/oz/asar/bahorning-17-lahzasi",
+             "img" : "https://media.istockphoto.com/id/2060984408/photo/stack-of-colorful-books-education-background-back-to-school-book-hardback-colorful-books-on.jpg?s=612x612&w=0&k=20&c=S-a-AjcVaONddGxfcfbNckme8H7ujSllz-MjgmcKrVQ="
+        }
+    ]
+}

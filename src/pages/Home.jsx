@@ -1,8 +1,5 @@
-import React from "react";
-import logo from "../assets/logo.png";
-import nom from "../assets/nom.png";
-import bos from "../assets/bos.png";
-import bosa from "../assets/nans.png";
+import React, { useEffect, useState } from "react";
+import db from "../utils/db.json"
 import { Link } from "react-router-dom";
 import { IoBook } from "react-icons/io5";
 import { FiUsers } from "react-icons/fi";
@@ -10,6 +7,10 @@ import { FaBookOpen } from "react-icons/fa";
 import { FaGraduationCap } from "react-icons/fa6";
 
 function Home() {
+  const [data , setData] = useState([]);
+   useEffect(()=>{
+        setData(db.books)
+   } , [])
   return (
     <div>
       {/* Hero section  */}
@@ -24,7 +25,7 @@ function Home() {
             sharoitlar mavjud.
           </p>
           <div className="flex items-center text-white font-[Merriweather_Sans] justify-center gap-10 p-7">
-            <Link className="p-4 px-13 bg-teal-500 rounded-lg">
+            <Link to={'/books'} className="p-4 px-13 bg-teal-500 rounded-lg">
               Kitob ko'rish
             </Link>
             <Link className="p-[15px] px-13 text-teal-500 border-2  rounded-lg">
@@ -76,134 +77,28 @@ function Home() {
           </p>
         </div>
         <div className="flex items-center flex-wrap justify-center gap-7">
-          <div className="h-[375px] bg-white rounded-lg shadow-lg overflow-hidden w-[280px]">
-            <img className="w-full h-48 object-cover" src={logo} alt="" />
-            <div className="p-3">
-              <span className="text-xs font-medium text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full mt-4">
-                Tarixiy roman
-              </span>
-              <h2 className="mt-2 text-lg font-semibold text-gray-900">
-                O'tkan kunlar
-              </h2>
-              <p className="text-sm text-gray-600">Abdulla Qodiriy</p>
-              <Link className="mt-7 w-full px-4 py-2 gap-3 bg-emerald-50 text-emerald-600 rounded-md hover:bg-emerald-100 flex items-center justify-center">
-                {" "}
-                <FaBookOpen /> Batafsil
-              </Link>
+          {
+            data.map((booksid)=> {
+              return(
+              <div key={booksid.id} className="h-[375px] bg-white rounded-lg shadow-lg overflow-hidden w-[280px]">
+              <img className="w-full h-48 object-cover" src={booksid.img} alt="" />
+              <div className="p-3">
+                <span className="text-xs font-medium text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full mt-4">
+                  {booksid.status}
+                </span>
+                <h2 className="mt-2 text-lg font-semibold text-gray-900">
+                  {booksid.name}
+                </h2>
+                <p className="text-sm text-gray-600">{booksid.shoir}</p>
+                <a href={booksid.link} className="mt-7 w-full px-4 py-2 gap-3 bg-emerald-50 text-emerald-600 rounded-md hover:bg-emerald-100 flex items-center justify-center">
+                  {" "}
+                  <FaBookOpen /> Batafsil
+                </a>
+              </div>
             </div>
-          </div>
-          <div className="h-[375px] bg-white rounded-lg shadow-lg overflow-hidden w-[280px]">
-            <img className="w-full h-48 object-cover" src={nom} alt="" />
-            <div className="p-3">
-              <span className="text-xs font-medium text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full mt-4">
-                Badiiy adabiyot
-              </span>
-              <h2 className="mt-2 text-lg font-semibold text-gray-900">
-                Kecha va Kunduz
-              </h2>
-              <p className="text-sm text-gray-600">Cho'lpon</p>
-              <Link className="mt-7 w-full px-4 py-2 gap-3 bg-emerald-50 text-emerald-600 rounded-md hover:bg-emerald-100 flex items-center justify-center">
-                {" "}
-                <FaBookOpen /> Batafsil
-              </Link>
-            </div>
-          </div>
-          <div className="h-[375px] bg-white rounded-lg shadow-lg overflow-hidden w-[280px]">
-            <img className="w-full h-48 object-cover" src={bosa} alt="" />
-            <div className="p-3">
-              <span className="text-xs font-medium text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full mt-4">
-                Bolalar adabiyoti
-              </span>
-              <h2 className="mt-2 text-lg font-semibold text-gray-900">
-                Sariq Devni Minib
-              </h2>
-              <p className="text-sm text-gray-600">Xudoyberdi To'xtaboyev</p>
-              <Link className="mt-7 w-full px-4 py-2 gap-3 bg-emerald-50 text-emerald-600 rounded-md hover:bg-emerald-100 flex items-center justify-center">
-                {" "}
-                <FaBookOpen /> Batafsil
-              </Link>
-            </div>
-          </div>
-          <div className="h-[375px] bg-white rounded-lg shadow-lg overflow-hidden w-[280px]">
-            <img className="w-full h-48 object-cover" src={bos} alt="" />
-            <div className="p-3">
-              <span className="text-xs font-medium text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full mt-4">
-                Tarixiy roman
-              </span>
-              <h2 className="mt-2 text-lg font-semibold text-gray-900">
-                Yulduzli tunlar
-              </h2>
-              <p className="text-sm text-gray-600">Pirimqul Qodirov</p>
-              <Link className="mt-7 w-full px-4 py-2 gap-3 bg-emerald-50 text-emerald-600 rounded-md hover:bg-emerald-100 flex items-center justify-center">
-                {" "}
-                <FaBookOpen /> Batafsil
-              </Link>
-            </div>
-          </div>
-          <div className="h-[375px] bg-white rounded-lg shadow-lg overflow-hidden w-[280px]">
-            <img className="w-full h-48 object-cover" src={logo} alt="" />
-            <div className="p-3">
-              <span className="text-xs font-medium text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full mt-4">
-                Tarixiy roman
-              </span>
-              <h2 className="mt-2 text-lg font-semibold text-gray-900">
-                O'tkan kunlar
-              </h2>
-              <p className="text-sm text-gray-600">Abdulla Qodiriy</p>
-              <Link className="mt-7 w-full px-4 py-2 gap-3 bg-emerald-50 text-emerald-600 rounded-md hover:bg-emerald-100 flex items-center justify-center">
-                {" "}
-                <FaBookOpen /> Batafsil
-              </Link>
-            </div>
-          </div>
-          <div className="h-[375px] bg-white rounded-lg shadow-lg overflow-hidden w-[280px]">
-            <img className="w-full h-48 object-cover" src={nom} alt="" />
-            <div className="p-3">
-              <span className="text-xs font-medium text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full mt-4">
-                Badiiy adabiyot
-              </span>
-              <h2 className="mt-2 text-lg font-semibold text-gray-900">
-                Kecha va Kunduz
-              </h2>
-              <p className="text-sm text-gray-600">Cho'lpon</p>
-              <Link className="mt-7 w-full px-4 py-2 gap-3 bg-emerald-50 text-emerald-600 rounded-md hover:bg-emerald-100 flex items-center justify-center">
-                {" "}
-                <FaBookOpen /> Batafsil
-              </Link>
-            </div>
-          </div>
-          <div className="h-[375px] bg-white rounded-lg shadow-lg overflow-hidden w-[280px]">
-            <img className="w-full h-48 object-cover" src={bosa} alt="" />
-            <div className="p-3">
-              <span className="text-xs font-medium text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full mt-4">
-                Bolalar adabiyoti
-              </span>
-              <h2 className="mt-2 text-lg font-semibold text-gray-900">
-                Sariq Devni Minib
-              </h2>
-              <p className="text-sm text-gray-600">Xudoyberdi To'xtaboyev</p>
-              <Link className="mt-7 w-full px-4 py-2 gap-3 bg-emerald-50 text-emerald-600 rounded-md hover:bg-emerald-100 flex items-center justify-center">
-                {" "}
-                <FaBookOpen /> Batafsil
-              </Link>
-            </div>
-          </div>
-          <div className="h-[375px] bg-white rounded-lg shadow-lg overflow-hidden w-[280px]">
-            <img className="w-full h-48 object-cover" src={bos} alt="" />
-            <div className="p-3">
-              <span className="text-xs font-medium text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full mt-4">
-                Tarixiy roman
-              </span>
-              <h2 className="mt-2 text-lg font-semibold text-gray-900">
-                Yulduzli tunlar
-              </h2>
-              <p className="text-sm text-gray-600">Pirimqul Qodirov</p>
-              <Link className="mt-7 w-full px-4 py-2 gap-3 bg-emerald-50 text-emerald-600 rounded-md hover:bg-emerald-100 flex items-center justify-center">
-                {" "}
-                <FaBookOpen /> Batafsil
-              </Link>
-            </div>
-          </div>
+              )
+            })
+          }
         </div>
       </div>
       {/* about books */}
