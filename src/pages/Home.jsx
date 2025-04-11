@@ -28,7 +28,7 @@ function Home() {
             <Link to={'/books'} className="p-4 px-13 bg-teal-500 rounded-lg">
               Kitob ko'rish
             </Link>
-            <Link className="p-[15px] px-13 text-teal-500 border-2  rounded-lg">
+            <Link to={"/dashboard/login"} className="p-[15px] px-13 text-teal-500 border-2  rounded-lg">
               A'zo bo'lish
             </Link>
           </div>
