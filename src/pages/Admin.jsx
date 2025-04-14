@@ -13,10 +13,9 @@ function Admin() {
   const [hato, setHato] = useState("");
 
   //  boshqa yanglik qoshish useSatatelari
-    const [nems , setNems] = useState("");
-    const [news , setNews] = useState("");
-    const [newimg, setNewimg] = useState("");
-
+  const [nems, setNems] = useState("");
+  const [news, setNews] = useState("");
+  const [newimg, setNewimg] = useState("");
 
   const soz = () => {
     setBor(!bor);
@@ -44,6 +43,14 @@ function Admin() {
       })
       .catch((error) => console.error("O'chirishda xatolik:", error));
   };
+  const deletenews = (id) => {
+    axios
+      .delete(`https://67f6936942d6c71cca6299cb.mockapi.io/Yangliklar/${id}`)
+      .then(() => {
+        handleClick();
+      })
+      .catch((error) => console.error("O'chirishda xatolik:", error));
+  };
 
   //  Bunda post books
   const onclick = () => {
@@ -63,11 +70,13 @@ function Admin() {
   };
 
   const handleClick = () => {
-    axios.post("https://67f6936942d6c71cca6299cb.mockapi.io/Yangliklar", {
-        name : nems ,
-        status : news ,
-        img : newimg
-    }).then((e)=> setHato("Kitob qoshildi"))
+    axios
+      .post("https://67f6936942d6c71cca6299cb.mockapi.io/Yangliklar", {
+        name: nems,
+        status: news,
+        img: newimg,
+      })
+      .then((e) => setHato("Kitob qoshildi"));
   };
 
   return (
@@ -104,7 +113,7 @@ function Admin() {
           mumkin.
         </p>
         {bor && (
-          <div>
+          <div className="p-4">
             <div className="bg-white p-8 rounded-xl shadow-md max-w-6xl">
               <h2 className="text-2xl font-semibold text-gray-700 mb-6 border-b pb-3">
                 📘 Yangi Kitob Qo‘shish
@@ -182,7 +191,7 @@ function Admin() {
               </div>
             </div>
 
-            <div className="bg-white p-8 rounded-xl shadow-md max-w-6xl">
+            <div className="bg-white p-8 rounded-xl mt-9 flex gap-4 flex-wrap shadow-md max-w-6xl">
               {data.map((book) => (
                 <li
                   className="text-2xl"
@@ -220,7 +229,7 @@ function Admin() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="text-sm font-medium text-gray-600">
-                     Status nomi :
+                    Status nomi :
                   </label>
                   <input
                     onChange={(e) => setNems(e.target.value)}
@@ -242,7 +251,7 @@ function Admin() {
                 </div>
                 <div>
                   <label className="text-sm font-medium text-gray-600">
-                   Yangilik img
+                    Yangilik img
                   </label>
                   <input
                     onChange={(e) => setNewimg(e.target.value)}
@@ -261,6 +270,20 @@ function Admin() {
                   + Qo‘shish
                 </button>
               </div>
+            </div>
+            <div className="flex flex-wrap gap-4 p-4 bg-white rounded-2xl mt-10">
+              {data.map((news) => {
+                return (
+                  <div className=" gap-3" key={news.id}>
+                    <div className="flex items-center gap-5">
+                      <p>{news.name}</p>
+                      <button className="p-2 bg-red-600 text-white px-5 rounded-sm" onClick={deletenews}>
+                        Dalete
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         )}

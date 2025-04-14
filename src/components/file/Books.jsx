@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { FaBookOpen } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function Books() {
   const [data, setData] = useState([]);
@@ -9,6 +10,7 @@ function Books() {
       .get("https://67f6936942d6c71cca6299cb.mockapi.io/Books")
       .then((request) => setData(request.data));
   }, []);
+  if (!data || data.length === 0) return "loading...";
   return (
     <div className="p-5">
       <p className="text-center text-4xl">Bizning kitoblar</p>
@@ -19,32 +21,24 @@ function Books() {
         bilim beruvchi adabiyotlarni topasiz.
       </p>
       <div className="flex items-center justify-center flex-wrap gap-8 p-6">
-        {data.map((infor) => {
+        {data.map((book) => {
           return (
-            <div
-              key={infor.id}
-              className="h-[375px] bg-white rounded-lg shadow-lg overflow-hidden w-[280px]"
-            >
-              <img
-                className="w-full h-48 object-cover"
-                src={infor.img}
-                alt=""
-              />
+            <div key={book.id} className="h-[375px] bg-white rounded-lg shadow-lg overflow-hidden w-[280px]">
+              <img className="w-full h-48 object-cover" src={book.img} alt="" />
               <div className="p-3">
                 <span className="text-xs font-medium text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full mt-4">
-                  {infor.status}
+                  {book.status}
                 </span>
                 <h2 className="mt-2 text-lg font-semibold text-gray-900">
-                  {infor.name}
+                  {book.name}
                 </h2>
-                <p className="text-sm text-gray-600">{infor.shoir}</p>
-                <a
-                  href={infor.link}
+                <p className="text-sm text-gray-600">{book.shoir}</p>
+                <Link
+                  to={`/books/${book.id}`}
                   className="mt-7 w-full px-4 py-2 gap-3 bg-emerald-50 text-emerald-600 rounded-md hover:bg-emerald-100 flex items-center justify-center"
                 >
-                  {" "}
                   <FaBookOpen /> Batafsil
-                </a>
+                </Link>
               </div>
             </div>
           );

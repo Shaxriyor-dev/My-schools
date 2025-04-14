@@ -10,7 +10,15 @@ function News() {
       .get("https://67f6936942d6c71cca6299cb.mockapi.io/Yangliklar")
       .then((respone) => setData(respone.data));
   }, []);
-
+ 
+    if(!data || data.length == 0){
+      return(
+        <div>
+            <p className="text-center p-4">Loading</p>
+        </div>
+      )
+    }
+   
   return (
     <div className="bg-teal-50 py-2 font-[Merriweather_Sans]">
       <p className="text-center p-3 text-3xl">Bizning kutubxonamizdagi yangiliklar</p>
