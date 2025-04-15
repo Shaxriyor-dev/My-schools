@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Commet } from 'react-loading-indicators';
 function News() {
   const [data, setData] = useState([]);
   const time = new Date().toDateString();
@@ -13,8 +14,8 @@ function News() {
  
     if(!data || data.length == 0){
       return(
-        <div>
-            <p className="text-center p-4">Loading</p>
+        <div className="flex items-center justify-center h-[500px]">
+            <Commet color="#32cd32" size="medium" text="" textColor="" />
         </div>
       )
     }

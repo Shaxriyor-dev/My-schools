@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { FaBookOpen } from "react-icons/fa";
 import { CiRead } from "react-icons/ci";
+import { Commet } from 'react-loading-indicators';
+
 
 
 function BooksDetails() {
@@ -17,7 +19,13 @@ function BooksDetails() {
 
   console.log(book);
 
-  if (!book) return null;
+  if (!book || book.length == 0){
+    return(
+      <div className="flex items-center justify-center h-[500px]">
+      <Commet color="#32cd32" size="medium" text="" textColor="" />
+  </div>
+    )
+  }
 
   const { shoir, avatar, img, link, name, status } = book;
 

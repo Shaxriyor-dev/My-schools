@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { FaBookOpen } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { Commet } from 'react-loading-indicators';
+
 
 function Books() {
   const [data, setData] = useState([]);
@@ -10,7 +12,13 @@ function Books() {
       .get("https://67f6936942d6c71cca6299cb.mockapi.io/Books")
       .then((request) => setData(request.data));
   }, []);
-  if (!data || data.length === 0) return "loading...";
+  if (!data || data.length === 0){
+     return(
+       <div className="flex items-center justify-center h-[500px]">
+                  <Commet color="#32cd32" size="medium" text="" textColor="" />
+              </div>
+     )
+  }
   return (
     <div className="p-5">
       <p className="text-center text-4xl">Bizning kitoblar</p>
